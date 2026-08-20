@@ -189,7 +189,7 @@ h3 {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #F4E3B2;
+    color: #E54724;
 }
 
 /* ===== SVG Estrela na Header ===== */
@@ -1739,11 +1739,11 @@ a:hover {
 }
 
 .mobile-nav-link:hover {
-    color: #F4E3B2;
+    color: #E54724;
 }
 
 .mobile-nav-link.active {
-    color: #F4E3B2;
+    color: #E54724;
 }
 
 /* Home page mobile-only header (hidden on desktop) */
