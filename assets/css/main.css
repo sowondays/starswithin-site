@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    Starswithin - Portfolio Theme
    ============================================ */
 
@@ -98,7 +98,7 @@ body {
     font-family: var(--body-font);
     font-weight: 400;
     font-style: normal;
-    background: url('../images/SW-Fundos_3.png') no-repeat center center fixed;
+    background: url('../images/SW-Fundos_3.webp') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-color);
     /* min-height: 0 (não 100vh) evita a scrollbar fantasma de 60px do footer fixo:
@@ -118,7 +118,7 @@ body {
     --muted: #c9bfae;
 }
 [data-theme="dark"] body {
-    background: url('../images/SW-Fundos_2.png') no-repeat center center fixed;
+    background: url('../images/SW-Fundos_2.webp') no-repeat center center fixed;
     background-size: cover;
 }
 [data-theme="dark"] body::before {
