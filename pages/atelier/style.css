@@ -1,0 +1,452 @@
+/**
+ * starswithin - CSS específico da página ateliê
+ *
+ * O CSS base comum está em ../../assets/css/main.css
+ * Este arquivo contém apenas os estilos do layout de ateliê
+ * (gallery de processo, comics list, modal de imagem).
+ */
+
+/* ===== Variáveis de cor específicas do ateliê ===== */
+:root {
+    --text-warm: #4a3b32;
+    --text-warm-muted: #7a6f68;
+    --accent-warm: #E54724;
+}
+[data-theme="dark"] {
+    --accent-warm: #d4a59a;
+    --text-warm: #e8dcc9;
+    --text-warm-muted: #c9bfae;
+    --text-muted: #c9bfae;
+}
+
+/* ===== Ateliê: Layout principal ===== */
+.atelier-wrap {
+    position: relative;
+    height: calc(100vh - 120px);
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: clamp(16px, 3vw, 48px) var(--spacing-xl);
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.atelier-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.atelier-intro p {
+    font-family: var(--body-font);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-warm);
+}
+[data-theme="dark"] .atelier-intro p {
+    color: var(--text-color);
+}
+
+.comics-heading {
+    font-family: var(--title-font);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--accent-warm);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.03em;
+}
+[data-theme="dark"] .comics-heading {
+    color: var(--primary);
+}
+
+/* ===== Layout: galeria + lista de comics ===== */
+.atelier-content {
+    display: flex;
+    gap: calc(var(--spacing-xl) * 2);
+    align-items: flex-start;
+}
+
+/* Galeria de thumbnails */
+.atelier-gallery {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 180px;
+    gap: var(--spacing-md);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.atelier-gallery .gallery-placeholder {
+    width: 100%;
+    background: linear-gradient(135deg, rgba(229, 112, 61, 0.12), rgba(244, 227, 178, 0.08));
+    border: 2px dashed rgba(229, 112, 61, 0.25);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition-fast);
+    cursor: pointer;
+}
+.atelier-gallery .gallery-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.atelier-gallery .gallery-placeholder a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+.atelier-gallery .gallery-placeholder:hover {
+    border-color: rgba(229, 112, 61, 0.5);
+    box-shadow: 0 0 12px rgba(229, 112, 61, 0.2);
+}
+.atelier-gallery .gallery-placeholder:nth-child(1) { min-height: 160px; }
+.atelier-gallery .gallery-placeholder:nth-child(2) { min-height: 190px; }
+.atelier-gallery .gallery-placeholder:nth-child(3) { min-height: 150px; }
+.atelier-gallery .gallery-placeholder:nth-child(4) { min-height: 180px; }
+.atelier-gallery .gallery-placeholder:nth-child(5) { min-height: 160px; }
+.atelier-gallery .gallery-placeholder:nth-child(6) { min-height: 170px; }
+.atelier-gallery .gallery-placeholder:nth-child(7) { min-height: 155px; }
+.atelier-gallery .gallery-placeholder:nth-child(8) { min-height: 165px; }
+.atelier-gallery .gallery-placeholder:nth-child(9) { min-height: 175px; }
+
+/* ===== Modal de imagem do ateliê (específico) ===== */
+.atelier-wrap .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.atelier-wrap .modal.active {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+.atelier-wrap .modal > .modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    transform: scale(0.92);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.atelier-wrap .modal.active > .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+.atelier-wrap .modal-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+.atelier-wrap .close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.atelier-wrap .close-modal:hover,
+.atelier-wrap .close-modal:focus { color: #F4E3B2; }
+
+/* ===== Lista de comics ===== */
+.comics-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.comic-item {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+.comic-thumb {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border: 2px dashed rgba(229, 112, 61, 0.25);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(229, 112, 61, 0.15), rgba(244, 227, 178, 0.1));
+}
+.comic-thumb::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: 0;
+}
+.comic-thumb img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+}
+.comic-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+.comic-title {
+    font-family: var(--title-font);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 0;
+}
+.comic-meta {
+    font-family: var(--body-font);
+    font-size: 0.85rem;
+    color: var(--text-warm-muted);
+    display: flex;
+    gap: 0.5rem;
+}
+[data-theme="dark"] .comic-meta { color: var(--text-muted); }
+
+.comic-tags {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+.comic-tags a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+.comic-tags a:hover { color: #E0703D; }
+[data-theme="dark"] .comic-tags a { color: var(--accent); }
+[data-theme="dark"] .comic-tags a:hover { color: var(--primary); }
+
+.comic-tag {
+    font-family: var(--body-font);
+    font-size: 0.75rem;
+    color: var(--primary);
+    background: rgba(229, 112, 61, 0.08);
+    border: 1px solid rgba(229, 112, 61, 0.2);
+    padding: 2px 8px;
+    border-radius: 12px;
+    transition: var(--transition-fast);
+    display: inline-block;
+    text-decoration: none;
+}
+.comic-tag:hover {
+    color: #E0703D;
+    background: rgba(224, 112, 61, 0.15);
+    border-color: rgba(224, 112, 61, 0.45);
+}
+[data-theme="dark"] .comic-tag {
+    color: var(--accent);
+    background: rgba(244, 227, 178, 0.12);
+    border-color: rgba(244, 227, 178, 0.3);
+}
+[data-theme="dark"] .comic-tag:hover {
+    color: var(--primary);
+    background: rgba(229, 112, 61, 0.15);
+    border-color: rgba(229, 112, 61, 0.4);
+}
+
+/* ===== Responsividade do ateliê ===== */
+@media (max-width: 1366px) {
+    .atelier-content { gap: var(--spacing-lg); }
+    .atelier-gallery { grid-auto-rows: 145px; }
+    .atelier-gallery .gallery-placeholder:nth-child(n) { min-height: 145px; }
+    .comic-thumb { width: 48px; height: 48px; }
+    .comic-item { gap: var(--spacing-xs); }
+    .comics-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+    .comic-item { flex-direction: row; }
+    .comic-title { font-size: 0.92rem; }
+    .comic-meta { font-size: 0.8rem; }
+    .comic-tag { font-size: 0.7rem; }
+    .comics-heading { font-size: 1.7rem; }
+    .atelier-intro p { font-size: 0.95rem; }
+}
+
+@media (max-width: 1200px) {
+    .atelier-content {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    .atelier-gallery {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: var(--spacing-sm);
+        height: 150px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4px 0;
+    }
+    .atelier-gallery .gallery-placeholder {
+        flex: 0 0 auto;
+        width: 130px;
+        height: 120px;
+        min-height: 0;
+    }
+    .atelier-gallery .gallery-placeholder:nth-child(n) { min-height: 120px; }
+    .comic-thumb { width: 50px; height: 50px; }
+    .comic-item { gap: var(--spacing-sm); }
+    .comics-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+    .comic-item { flex-direction: row; }
+    .comic-title { font-size: 0.95rem; }
+    .comic-meta { font-size: 0.8rem; }
+}
+
+@media (max-width: 1100px) {
+    .atelier-wrap {
+        height: auto;
+        min-height: calc(100vh - 120px);
+    }
+
+    /* Modal de imagem desativado no mobile */
+    .atelier-wrap .modal {
+        display: none !important;
+        pointer-events: none;
+    }
+
+    .atelier-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        height: auto;
+        min-height: auto;
+        gap: var(--spacing-sm);
+    }
+
+    .atelier-gallery .gallery-placeholder {
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+        padding: 0;
+        border: none;
+    }
+
+    .atelier-gallery .gallery-placeholder img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 200px;
+        object-fit: contain;
+        border-radius: 8px;
+        position: static;
+    }
+
+    .atelier-gallery .gallery-placeholder:nth-child(n) {
+        min-height: 200px !important;
+    }
+
+    .comic-thumb {
+        width: 70px;
+        height: 70px;
+    }
+
+    .comic-item {
+        align-items: center;
+        margin-left: var(--spacing-lg);
+        width: auto;
+        max-width: 400px;
+    }
+
+    .comics-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .comics-heading {
+        margin: var(--spacing-lg) 0 var(--spacing-md);
+        font-size: 32px;
+    }
+
+    .comic-tag { font-size: 0.68rem; }
+    .atelier-intro p {
+        font-size: 0.9rem; 
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .atelier-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .atelier-gallery .gallery-placeholder {
+        min-height: 220px;
+    }
+
+    .atelier-gallery .gallery-placeholder img {
+        min-height: 220px;
+    }
+}
+
+/* Footer mobile - igual à página inicial */
+@media (max-width: 1100px) {
+    .footer-info {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    .footer-name {
+        display: block;
+        font-weight: 500;
+    }
+    .footer-copyright {
+        display: block;
+        opacity: 0.8;
+        margin-top: 0.25rem;
+    }
+}

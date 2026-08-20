@@ -1,0 +1,422 @@
+/**
+ * starswithin - CSS específico da página sobre
+ *
+ * O CSS base comum está em ../../assets/css/main.css
+ * Este arquivo contém apenas os estilos da janela de navegador
+ * (browser-window), colunas de perfil, formação, experiência,
+ * interesses e badges.
+ */
+
+/* ===== Variáveis de cor específicas do sobre (claro / escuro) ===== */
+:root {
+    --browser-window-bg: rgba(255, 255, 255, 0.2);
+    --browser-bar-bg:    rgba(0, 0, 0, 0.04);
+    --browser-border:    rgba(130, 130, 130, 0.3);
+    --browser-url-color: #888;
+    --year-color: #E0703D;
+    --formation-color: #2A2529;
+}
+[data-theme="dark"] {
+    --browser-window-bg: rgba(255, 255, 255, 0.06);
+    --browser-bar-bg:    rgba(255, 255, 255, 0.1);
+    --browser-border:    rgba(255, 255, 255, 0.15);
+    --browser-url-color: #d4c9b8;
+    --text-muted: #c9bfae;
+    --year-color: var(--accent);
+    --formation-color: var(--text-color);
+}
+
+/* ===== Sobre: contexto de empilhamento para o browser-window ===== */
+.about-main {
+    position: relative;
+    height: calc(100vh - 120px);
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: var(--spacing-xl) var(--spacing-xl);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ===== Janela de navegador (perfil de rede social) ===== */
+.browser-window {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--browser-window-bg);
+    border: 1px solid var(--browser-border);
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+}
+
+.browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: var(--browser-bar-bg);
+    border-bottom: 1px solid var(--browser-border);
+}
+.browser-bar .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.browser-url {
+    font-family: var(--code-font);
+    font-size: 0.8rem;
+    color: var(--browser-url-color);
+    white-space: nowrap;
+}
+.browser-nav {
+    margin-left: auto;
+    height: 20px;
+    width: auto;
+    opacity: 0.6;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+.browser-nav:hover { opacity: 1; }
+[data-theme="dark"] .browser-nav { opacity: 0.7; }
+
+/* ===== Grid de 3 colunas dentro da janela ===== */
+.profile-browser {
+    display: flex;
+    gap: var(--spacing-xxl);
+    padding: var(--spacing-xl);
+}
+.browser-col {
+    flex: 1;
+    min-width: 200px;
+}
+.col-profile    { flex: 4; }
+.col-about      { flex: 3; }
+.col-interests  { flex: 3; }
+
+/* ===== Coluna 1: Nome e Foto ===== */
+.col-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+}
+.profile-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px rgba(229, 71, 36, 0.4);
+}
+.profile-name {
+    font-family: var(--title-font);
+    font-size: 2rem;
+    color: var(--primary);
+    margin: 0;
+}
+.profile-title {
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+.col-profile h4 {
+    font-family: var(--title-font);
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin: 0;
+}
+
+/* ===== Coluna 2: Formação, Experiência ===== */
+.col-about h1 {
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin: var(--spacing-lg) 0 var(--spacing-lg);
+}
+.col-about h4 {
+    font-family: var(--title-font);
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+.col-about h4:first-child { margin-top: 0; }
+.col-about .org-name {
+    font-family: "Geist", sans-serif;
+    font-weight: 700;
+    color: var(--secondary);
+}
+.col-about .degree-title {
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    color: #292428;
+    margin-left: var(--spacing-xs);
+}
+.col-about p,
+.col-about li {
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.7;
+}
+.col-about a {
+    color: var(--primary);
+    text-decoration: none;
+    position: relative;
+    transition: var(--transition-fast);
+}
+.col-about a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: var(--transition-fast);
+}
+.col-about a:hover::after,
+.col-about a:focus::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Bio (override — main.css define max-width: 400px, aqui é justify) */
+.bio {
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    text-align: justify;
+    max-width: none;
+    margin: 1rem var(--spacing-md) 0;
+}
+
+.formation-list,
+.experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.formation-list {
+    margin-bottom: var(--spacing-lg);
+}
+.formation-list li {
+    margin-bottom: 0;
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-xs);
+}
+.formation-list code,
+.formation-list,
+.formation-list li {
+    color: var(--formation-color);
+}
+.formation-list li .year,
+.experience-list li .org-name {
+    align-items: baseline;
+}
+.year, .org-name {
+    flex-shrink: 0;
+    display: inline-flex;
+}
+
+.experience-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) 0;
+}
+.experience-item h4 { margin: 0; }
+
+/* ===== Coluna 3: Interesses e Faixas em gif ===== */
+.col-interests h4 {
+    font-family: var(--title-font);
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+}
+.col-interests h4:first-child { margin-top: 0; }
+.interests-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg) 0;
+}
+.interests-list li {
+    padding: 4px 0;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 22px;
+}
+.interests-list li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+}
+/* Bullet points laranja no modo claro */
+body:not([data-theme="dark"]) .interests-list li::before {
+    color: var(--secondary);
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+.badges img {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition-fast);
+}
+
+/* Download button (override margin) */
+.btn.download { margin-top: var(--spacing-lg); }
+
+/* ===== Responsividade do sobre ===== */
+@media (max-width: 1366px) {
+    .about-main { padding: var(--spacing-lg) var(--spacing-md); }
+    .browser-bar { padding: 6px 14px; }
+    .profile-browser { gap: var(--spacing-lg); padding: var(--spacing-lg); }
+    .profile-avatar { width: 140px; height: 140px; }
+    .badges img { height: 26px; }
+    .col-about p, .col-about li, .bio { font-size: 0.9rem; line-height: 1.6; }
+    .col-about h1 { font-size: 1.35rem; }
+    .col-about h4 { font-size: 1rem; }
+    .col-profile h4 { font-size: 1rem; }
+    .col-interests h4 { font-size: 1rem; }
+    .interests-list li { padding: 3px 0; }
+    .bio { margin: 0.5rem var(--spacing-sm) 0; }
+}
+
+@media (max-width: 1024px) {
+    .about-main { padding: var(--spacing-md); }
+    .profile-browser { gap: var(--spacing-md); padding: var(--spacing-sm); }
+    .profile-avatar { width: 120px; height: 120px; }
+    .badges img { height: 22px; }
+    .col-about p, .col-about li, .bio { font-size: 0.83rem; line-height: 1.55; }
+    .col-about h1 { font-size: 1.2rem; }
+    .col-about h4 { font-size: 0.9rem; }
+    .col-profile .profile-name { font-size: 1.6rem; }
+    .col-interests h4 { font-size: 0.9rem; }
+    .experience-item { padding: 2px 0; }
+    .bio { margin: 0.3rem var(--spacing-xs) 0; }
+}
+
+@media (max-width: 1100px) {
+    .about-main {
+        padding: var(--spacing-xl) var(--spacing-md);
+        height: auto;
+        min-height: calc(100vh - 120px);
+    }
+
+    .profile-browser {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    /* Single column full-width */
+    .browser-col {
+        flex: 1 !important;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .col-profile { flex: 1 !important; }
+    .col-about { flex: 1 !important; }
+    .col-interests { flex: 1 !important; }
+
+    /* Visual separation between sections */
+    .browser-col {
+        margin-bottom: var(--spacing-lg);
+        padding: var(--spacing-md);
+        border-radius: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .browser-col:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+
+    /* ===== Centralizar todos os textos no mobile ===== */
+    /* Centraliza texto em todas as colunas (cascata para h1, h4, p, code, a) */
+    .browser-col { text-align: center; }
+
+    /* Bio vem com text-align: justify no desktop — sobrescreve para center */
+    .bio { text-align: center; }
+
+    /* Formação: flex row → centralizar itens horizontalmente */
+    .formation-list li { justify-content: center; }
+
+    /* Experiência: flex column → centralizar itens horizontalmente */
+    .experience-item { align-items: center; }
+
+    /* Ajustes para lista de interesses - mais compacta e centralizada no mobile */
+    .interests-list {
+        margin: 0 0 var(--spacing-lg) 0;
+        padding: 0;
+        list-style: none;
+        display: inline-block;
+    }
+    .interests-list li {
+        padding: 2px 0;
+        font-size: 0.85rem;
+        text-align: left;
+    }
+    .interests-list li::before {
+        content: "";
+        display: inline-block;
+        position: static;
+        margin-right: 6px;
+        vertical-align: middle;
+        width: 14px;
+        height: 14px;
+        background: url('../../assets/images/SW-Select_4.svg') no-repeat center/contain;
+    }
+
+    /* Faixas (badges) ocupando uma coluna, centralizadas */
+    .badges {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+    }
+    .badges img {
+        height: 40px;
+        width: auto;
+        max-width: 200px;
+        object-fit: contain;
+        transition: var(--transition-fast);
+    }
+
+    /* Footer mobile - igual à página inicial */
+    .footer-info {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    .footer-name {
+        display: block;
+        font-weight: 500;
+    }
+    .footer-copyright {
+        display: block;
+        opacity: 0.8;
+        margin-top: 0.25rem;
+    }
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>ateliê - starswithin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ateliê de Mavie 'stellar' Silva - espaço criativo de arte digital">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/main.css?v=5">
+    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="icon" href="../../assets/images/SW-Favicon_1.png" type="image/png">    
+</head>
+
+<body>
+    <div class="preloader">
+        <img class="loading-star" src="../../assets/images/SW-MainStar.svg" alt="" aria-hidden="true">
+    </div>
+    <header class="site-header">
+        <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="hamburger"></span>
+        </button>
+        <nav class="navigation">
+            <a href="../../index.html" class="nav-link">início</a>
+            <a href="../sobre/index.html" class="nav-link">sobre</a>
+            <a href="../portfolio/index.html" class="nav-link">portfólio</a>
+            <span class="nav-item atelier"><a href="index.html" class="nav-link active">ateliê</a></span>
+            <a href="../contato/index.html" class="nav-link">contato</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" title="Alternar tema" aria-pressed="false">
+            <span class="toggle-track">
+                <span class="toggle-knob"></span>
+            </span>
+        </button>
+    </header>
+
+    <nav class="mobile-nav-overlay" id="mobile-menu">
+        <button class="mobile-nav-close" aria-label="Fechar menu" aria-controls="mobile-menu">
+            <span class="nav-close-x">&times;</span>
+        </button>
+        <a href="../../index.html" class="mobile-nav-link">início</a>
+        <a href="../sobre/index.html" class="mobile-nav-link">sobre</a>
+        <a href="../portfolio/index.html" class="mobile-nav-link">portfólio</a>
+        <a href="index.html" class="mobile-nav-link active">ateliê</a>
+        <a href="../contato/index.html" class="mobile-nav-link">contato</a>
+    </nav>
+
+    <section class="atelier-wrap">
+        <div class="atelier-intro">
+            <p>
+                Este é um espaço dedicado ao hobby que iniciou minha jornada de descoberta pessoal por tudo.
+                Sem desenhar e sem meus projetos de história, não estaria com cada um desses trabalhos,
+                e não seria eu de verdade.
+            </p>
+        </div>
+
+        <div class="atelier-content">
+            <div class="atelier-gallery">
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/yagakimi redraw1.png" data-alt="Yuu e Touko - YagaKimi">
+                    <img src="../../images/ATELIER/yagakimi redraw1.png" alt="Yuu e Touko - YagaKimi">
+                </button>
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/claire musg s.png" data-alt="Claire (OC)">
+                    <img src="../../images/ATELIER/claire musg s.png" alt="Claire (OC)">
+                </button>
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/yeji b-day.png" data-alt="Yeji - Fireworks (DAOKO)">
+                    <img src="../../images/ATELIER/yeji b-day.png" alt="Yeji - Fireworks (DAOKO)">
+                </button>
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/taeyeon wdicy s.png" data-alt="Taeyeon - What Do I Call You">
+                    <img src="../../images/ATELIER/taeyeon wdicy s.png" alt="Taeyeon - What Do I Call You">
+                </button>
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/morgan bday s.png" data-alt="Morgan (OC)">
+                    <img src="../../images/ATELIER/morgan bday s.png" alt="Morgan (OC)">
+                </button>
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/summer ex.png" data-alt="Summer (OC)">
+                    <img src="../../images/ATELIER/summer ex.png" alt="Summer (OC)">
+                </button>
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/forma e função.psd.png" data-alt="forma e função - stellar e fonte Lacre (@ansuzyeux)">
+                    <img src="../../images/ATELIER/forma e função.psd.png" alt="forma e função - stellar e fonte Lacre (@ansuzyeux)">
+                </button>
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/heart dtiys s.png" data-alt="Heart (OC - @c4fezinhooo)">
+                    <img src="../../images/ATELIER/heart dtiys s.png" alt="Heart (OC - @c4fezinhooo)">
+                </button>
+                <button class="gallery-placeholder" data-img="../../images/ATELIER/vertin.png" data-alt="Vertin - Reverse:1999">
+                    <img src="../../images/ATELIER/vertin.png" alt="Vertin - Reverse:1999">
+                </button>
+            </div>
+
+            <div class="modal" id="image-modal">
+                <div class="modal-content">
+                    <button class="close-modal" id="close-modal">&times;</button>
+                    <img src="" alt="" id="modal-img">
+                </div>
+            </div>
+
+            <aside class="comics-list">
+                <h1 class="comics-heading">quadrinhos</h1>
+
+                <article class="comic-item">
+                    <img src="../../images/ATELIER/nd-cut.png" alt="Capa Não desista!" class="comic-thumb"
+                         onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2270%22 height=%2290%22 viewBox=%220 0 70 90%22%3E%3Crect width=%2270%22 height=%2290%22 fill=%22none%22 stroke=%22%23888%22 stroke-width=%221%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%228%22 fill=%22%23888%22 font-family=%22sans-serif%22%3Ethumb%3C/text%3E%3C/svg%3E';">
+                    <div class="comic-info">
+                        <h3 class="comic-title">Não desista!</h3>
+                        <div class="comic-meta">
+                            <span>ano: 2024</span>
+                            <span>romance</span>
+                        </div>
+                        <div class="comic-tags">
+                            <a href="https://fliptru.com.br/comic/nao-desista-hztu/001?origin=chapter-list&extra=page_1" target="_blank" rel="noopener noreferrer" class="comic-tag">Fliptru</a>
+                            <a href="https://funktoon.com/serie/naodesistacomic" target="_blank" rel="noopener noreferrer" class="comic-tag">Funktoon</a>
+                            <a href="https://tapas.io/series/naodesista/info" target="_blank" rel="noopener noreferrer" class="comic-tag">Tapas</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="comic-item">
+                    <img src="../../images/ATELIER/sm-capa.png" alt="Capa Sun & Moon" class="comic-thumb"
+                         onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2270%22 height=%2290%22 viewBox=%220 0 70 90%22%3E%3Crect width=%2270%22 height=%2290%22 fill=%22none%22 stroke=%22%23888%22 stroke-width=%221%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%228%22 fill=%22%23888%22 font-family=%22sans-serif%22%3Ethumb%3C/text%3E%3C/svg%3E';">
+                    <div class="comic-info">
+                        <h3 class="comic-title">Sun & Moon</h3>
+                        <div class="comic-meta">
+                            <span>ano: 2019</span>
+                            <span>fantasia</span>
+                        </div>
+                        <div class="comic-tags">
+                            <a href="https://www.instagram.com/p/B2bsOSjj9we/" target="_blank" rel="noopener noreferrer" class="comic-tag">Magazine (IG)</a>
+                            <a href="https://www.tumblr.com/stellar-vault/824159685451071488/sun-moon-01-lumos-um-mago-aprendiz-ao" target="_blank" rel="noopener noreferrer" class="comic-tag">Arquivo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="comic-item">
+                    <img src="../../images/ATELIER/flr-cut.png" alt="Capa Florescer" class="comic-thumb"
+                         onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2270%22 height=%2290%22 viewBox=%220 0 70 90%22%3E%3Crect width=%2270%22 height=%2290%22 fill=%22none%22 stroke=%22%23888%22 stroke-width=%221%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%228%22 fill=%22%23888%22 font-family=%22sans-serif%22%3Ethumb%3C/text%3E%3C/svg%3E';">
+                    <div class="comic-info">
+                        <h3 class="comic-title">Florescer</h3>
+                        <div class="comic-meta">
+                            <span>ano: 2019</span>
+                            <span>romance</span>
+                        </div>
+                        <div class="comic-tags">
+                            <a href="https://tapas.io/series/florescer-pt" target="_blank" rel="noopener noreferrer" class="comic-tag">Tapas</a>
+                            <a href="https://www.tumblr.com/stellar-vault/186353274121/florescer-quadrinho-de-abril-de-2019-criado-para" target="_blank" rel="noopener noreferrer" class="comic-tag">Arquivo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="comic-item">
+                    <img src="../../images/ATELIER/dsc-cut.png" alt="Arte Discover" class="comic-thumb"
+                         onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2270%22 height=%2290%22 viewBox=%220 0 70 90%22%3E%3Crect width=%2270%22 height=%2290%22 fill=%22none%22 stroke=%22%23888%22 stroke-width=%221%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%228%22 fill=%22%23888%22 font-family=%22sans-serif%22%3Ethumb%3C/text%3E%3C/svg%3E';">
+                    <div class="comic-info">
+                        <h3 class="comic-title">Discover</h3>
+                        <div class="comic-meta">
+                            <span>ano: 2017</span>
+                            <span>fantasia</span>
+                        </div>
+                        <div class="comic-tags">
+                            <a href="https://www.webtoons.com/en/canvas/discover/list?title_no=199650" target="_blank" rel="noopener noreferrer" class="comic-tag">Webtoon (ENG)</a>
+                            <a href="https://www.tumblr.com/stellar-vault/170592912271/discover-comic-experimental-sobre-humanidade" target="_blank" rel="noopener noreferrer" class="comic-tag">Arquivo</a>
+                        </div>
+                    </div>
+                </article>
+            </aside>
+        </div>
+    </section>
+
+    <div class="footer-desktop">
+        <div class="footer-left">
+            <img src="../../assets/images/SW-Start_1.png" class="start-logo" alt="Iniciar" aria-label="Abrir menu iniciar">
+            <div class="start-modal" id="start-modal">
+                <div class="start-modal-header">
+                    <div class="start-modal-title">
+                        <img src="../../assets/images/SW-Favicon_1.png" alt="Favicon" class="start-modal-favicon">
+                        visitante
+                    </div>
+                    <span class="start-modal-close" aria-label="Fechar menu iniciar">&times;</span>
+                </div>
+                <div class="start-modal-content">
+                    <a href="https://instagram.com/starswithin_" class="start-modal-item">
+                        <span>instagram</span>
+                    </a>
+                    <a href="https://youtube.com/@starswithin1" class="start-modal-item">
+                        <span>youtube</span>
+                    </a>
+                    <a href="https://behance.net/starswithin" class="start-modal-item">
+                        <span>behance</span>
+                    </a>
+                    <a href="mailto:contato@starswithin.com" class="start-modal-item">
+                        <span>contato@starswithin.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-info">
+                <span class="footer-name">Mavie "stellar" Silva © 2026</span>
+                <span class="footer-copyright">NÃO use nenhum dos meus conteúdos sem permissão/alimentar Inteligência Artificial.</span>
+            </p>
+        </div>
+    </div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

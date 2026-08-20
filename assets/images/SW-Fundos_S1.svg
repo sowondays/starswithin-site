@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f4e3b2;
+        opacity: .5;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        mix-blend-mode: overlay;
+        opacity: .25;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" y="-1140" width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g class="cls-3">
+    <g id="Camada_1" data-name="Camada 1">
+      <g class="cls-4">
+        <g class="cls-5">
+          <image width="3000" height="3000" transform="translate(-22.11 -1582.11) scale(.65)" xlink:href="X:\2 Pessoal\starswithin\0-Recursos\0-Texturas\1 noise.png"/>
+        </g>
+      </g>
+      <polygon class="cls-1" points="998.63 567.28 1002.07 565.29 1514.65 541 1035.4 518.29 1262.88 366.13 1017.37 487.06 1237.33 60.66 960 492.42 956.56 494.41 785.13 238.12 921.37 514.72 917.93 516.71 405.35 541 884.6 563.71 657.12 715.87 902.63 594.94 682.67 1021.34 960 589.58 963.44 587.59 1134.87 843.88 998.63 567.28"/>
+    </g>
+  </g>
+</svg>
