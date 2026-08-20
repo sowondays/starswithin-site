@@ -37,18 +37,18 @@
             width: min(85vw, 1400px);
             height: auto;
             max-height: 80vh;
-            filter: drop-shadow(0 0 14px rgba(244, 227, 178, 0.45))
-                    drop-shadow(0 0 28px rgba(0, 245, 255, 0.25));
+            filter: drop-shadow(0 0 14px rgba(244, 227, 178, 0.55))
+                    drop-shadow(0 0 28px rgba(244, 227, 178, 0.30));
             animation: starGlow 5s ease-in-out infinite;
         }
         @keyframes starGlow {
             0%, 100% {
-                filter: drop-shadow(0 0 14px rgba(244, 227, 178, 0.45))
-                        drop-shadow(0 0 28px rgba(0, 245, 255, 0.25));
+                filter: drop-shadow(0 0 14px rgba(244, 227, 178, 0.55))
+                        drop-shadow(0 0 28px rgba(244, 227, 178, 0.30));
             }
             50% {
-                filter: drop-shadow(0 0 22px rgba(244, 227, 178, 0.60))
-                        drop-shadow(0 0 40px rgba(0, 245, 255, 0.40));
+                filter: drop-shadow(0 0 22px rgba(244, 227, 178, 0.70))
+                        drop-shadow(0 0 40px rgba(244, 227, 178, 0.45));
             }
         }
 
@@ -80,10 +80,42 @@
 
         .star-link:hover {
             color: var(--light);
-            text-shadow: 0 0 8px var(--accent),
-                         0 0 14px rgba(0, 245, 255, 0.5),
-                         0 0 22px rgba(244, 227, 178, 0.7);
-            box-shadow: 0 0 12px var(--accent);
+            text-shadow: 0 0 8px #F4E3B2,
+                         0 0 16px rgba(244, 227, 178, 0.85),
+                         0 0 24px rgba(244, 227, 178, 0.70);
+            box-shadow: 0 0 14px #F4E3B2;
+        }
+
+        /* Mesmo tom de brilho amarelado no modo escuro */
+        [data-theme="dark"] .star-svg {
+            filter: drop-shadow(0 0 14px rgba(244, 227, 178, 0.55))
+                    drop-shadow(0 0 28px rgba(244, 227, 178, 0.30));
+            animation: starGlowDark 5s ease-in-out infinite;
+        }
+        @keyframes starGlowDark {
+            0%, 100% {
+                filter: drop-shadow(0 0 14px rgba(244, 227, 178, 0.55))
+                        drop-shadow(0 0 28px rgba(244, 227, 178, 0.30));
+            }
+            50% {
+                filter: drop-shadow(0 0 22px rgba(244, 227, 178, 0.70))
+                        drop-shadow(0 0 40px rgba(244, 227, 178, 0.45));
+            }
+        }
+        [data-theme="dark"] .star-link:hover {
+            color: var(--light);
+            text-shadow: 0 0 8px #F4E3B2,
+                         0 0 16px rgba(244, 227, 178, 0.85),
+                         0 0 24px rgba(244, 227, 178, 0.70);
+            box-shadow: 0 0 14px #F4E3B2;
+        }
+
+        /* Toggle de tema visível apenas no desktop */
+        .desktop-toggle {
+            position: fixed !important;
+            top: 1rem;
+            right: 1rem;
+            transform: none !important;
         }
 
         @media (max-width: 1100px) {
@@ -110,20 +142,10 @@
                 height: auto;
                 min-height: 100vh;
                 padding-top: 0;
+                padding-bottom: 80px; /* 60px footer + 20px buffer */
             }
-            .footer-info {
-                font-size: 0.75rem;
-                line-height: 1.4;
-            }
-            .footer-name {
-                display: block;
-                font-weight: 500;
-            }
-            .footer-copyright {
-                display: block;
-                opacity: 0.8;
-                margin-top: 0.25rem;
-            }
+            /* Footer text sizing now consolidated in main.css @media(max-width:1100px) */
+            .desktop-toggle { display: none !important; }
         }
     </style>
 </head>
@@ -138,6 +160,13 @@
             </span>
         </button>
     </header>
+
+    <!-- Desktop-only theme toggle (mobile toggle lives inside .mobile-header) -->
+    <button class="theme-toggle desktop-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro" aria-pressed="false">
+        <span class="toggle-track">
+            <span class="toggle-knob"></span>
+        </span>
+    </button>
 
     <nav class="mobile-nav-overlay" id="mobile-menu">
         <button class="mobile-nav-close" aria-label="Fechar menu" aria-controls="mobile-menu">

@@ -189,7 +189,7 @@ h3 {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary);
+    color: #F4E3B2;
 }
 
 /* ===== SVG Estrela na Header ===== */
@@ -261,6 +261,7 @@ h3 {
     height: 100vh;
     text-align: center;
     padding-top: 60px;
+    padding-bottom: 80px; /* 60px footer + 20px buffer */
     position: relative;
     overflow: hidden;
 }
@@ -358,6 +359,34 @@ footer p {
     color: var(--text-muted);
     font-size: 0.85rem;
     margin: 0;
+}
+
+/* ===== Footer: mobile-specific styling (≤1100px) ===== */
+@media (max-width: 1100px) {
+    .footer-desktop {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 60px;
+        padding: 0 var(--spacing-md);
+        z-index: 150;
+    }
+
+    /* Consolidated mobile footer text sizing (was duplicated per-page) */
+    .footer-info {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    .footer-name {
+        display: block;
+        font-weight: 500;
+    }
+    .footer-copyright {
+        display: block;
+        opacity: 0.8;
+        margin-top: 0.25rem;
+    }
 }
 
 /* Botão do menu iniciar (estilo taskbar) - apenas ícone */
@@ -599,6 +628,7 @@ a:hover {
     margin-top: 60px;
     margin-bottom: 60px;
     padding: var(--spacing-lg) var(--spacing-xl);
+    padding-bottom: 80px; /* 60px footer + 20px buffer */
     width: 100%;
     /* altura FIXA entre o header fixo e o footer fixo: a página em si não rola
        em nenhum viewport.overflow-y:auto permite rolagem interna do conteúdo
@@ -1709,11 +1739,11 @@ a:hover {
 }
 
 .mobile-nav-link:hover {
-    color: var(--primary);
+    color: #F4E3B2;
 }
 
 .mobile-nav-link.active {
-    color: var(--primary);
+    color: #F4E3B2;
 }
 
 /* Home page mobile-only header (hidden on desktop) */
