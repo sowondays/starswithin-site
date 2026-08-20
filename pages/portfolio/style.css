@@ -1,0 +1,191 @@
+/**
+ * starswithin - CSS específico da página portfólio
+ *
+ * O CSS base comum está em ../../assets/css/main.css
+ * Este arquivo contém apenas overrides específicos
+ * que não existem ou diferem de main.css.
+ */
+
+/* ===== Override: grade 3×2 para o portfólio =====
+   (main.css define 4×3; o portfólio usa 3×2) */
+.project-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+@media (max-width: 1100px) {
+    /* main.css define apenas 2 colunas aqui; o portfólio precisa de 3 linhas */
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .portfolio-section {
+        height: auto;
+        min-height: calc(100vh - 120px);
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content;
+        gap: var(--spacing-sm);
+        overflow: hidden;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .project-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        object-position: center;
+        transform: scale(1.15);
+    }
+
+    /* Galeria de detalhes - imagens menores em telas pequenas */
+    .modal-gallery {
+        height: 110px;
+    }
+
+    /* Imagem principal do modal - altura menor */
+    .modal-main-image,
+    .modal-main-media img {
+        height: 170px;
+    }
+}
+
+/* ===== Overrides de galeria dentro do modal ===== */
+/* main.css define background: rgba(0, 0, 0, 0.3); aqui usamos #202020 */
+.modal-gallery .gallery-item { background: #202020; }
+.modal-gallery .video-item {
+    height: 140px;
+    background: #202020;
+}
+
+/* ===== Modal de projetos - versão mobile ===== */
+@media (max-width: 1100px) {
+    /* Modal overlay - menos padding para mais espaço ao modal */
+    .modal {
+        padding: var(--spacing-sm);
+    }
+
+    /* Container do modal - altura auto, padding maior, centralizado */
+    .modal-content {
+        padding: var(--spacing-md);
+        gap: 0;
+        align-items: center;
+        text-align: center;
+        max-width: 95vw;
+        width: 95vw;
+        height: auto;
+        max-height: 90vh;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    /* Itens do modal: sem padding, sem flex-grow, largura total */
+    .modal-item.modal-content,
+    .modal-item.modal-media {
+        padding: 0;
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Gap reduzido entre elementos do conteúdo textual */
+    .modal-item.modal-content {
+        gap: var(--spacing-xs);
+    }
+
+    /* Reduzir tamanhos de fonte */
+    .modal-content h3 {
+        font-size: 1.25rem;
+        margin: var(--spacing-xs) 0 0;
+    }
+
+    /* Descrição visível por completo, com fonte menor e word-wrap */
+    .modal-description {
+        font-size: 0.72rem;
+        line-height: 1.45;
+        margin-bottom: var(--spacing-sm);
+        width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .tag-label {
+        font-size: 0.6rem;
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .tag-group {
+        justify-content: center;
+        gap: var(--spacing-xs);
+    }
+
+    .tool-tag,
+    .type-tag,
+    .year-tag {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
+
+    /* Imagem principal do modal - tamanho aumentado */
+    .modal-main-image,
+    .modal-main-media img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    /* Galeria de detalhes - 2 linhas e 2 colunas, altura compensatória */
+    .modal-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        height: 120px;
+        gap: var(--spacing-xs);
+        margin-top: var(--spacing-xs);
+    }
+
+    .modal-gallery .gallery-item,
+    .modal-gallery .video-item {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    .modal-gallery .gallery-item:hover {
+        transform: scale(1.05);
+    }
+}
+
+/* Footer mobile - igual à página inicial */
+@media (max-width: 1100px) {
+    .footer-info {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    .footer-name {
+        display: block;
+        font-weight: 500;
+    }
+    .footer-copyright {
+        display: block;
+        opacity: 0.8;
+        margin-top: 0.25rem;
+    }
+}
